@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Ajax</title>
+    <script src="/static/js/jquery-1.12.4.min.js"></script>
+    <script>
+        $(function(){
+            //绑定btnAjax的click时间
+            $('#btnAjax').click(function(){
+                alert("1")
+                // alert('hello')
+                $.ajax({
+                    'url': '/ajax_handle',
+                    'dataType':'json'
+                }).success(function(data){
+                    //进行处理
+                    // alert(data.res)
+                    alert('2')
+                    if (data.res == 1){
+                        $('#message').show().html('提示信息')
+                    }
+                })
+                alert('3')
+            }) 
+        })
+    </script>
+    <style>
+        #message{ 
+            display: none;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <button id="btnAjax">ajax请求</button>
+    <div id="message"></div>
+</body>
+</html>

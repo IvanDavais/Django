@@ -1,0 +1,6 @@
+{% extends 'booktest/base.html'%}
+{% block title%}子页面{% endblock title%}
+{% block menu %}
+    {{ block.super }}
+    <h3>这个是子页面中自定义的内容，可以从父页面中继承过来，也可以选择不继承 </h3> 
+{% endblock menu%}

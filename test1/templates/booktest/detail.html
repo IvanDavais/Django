@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>展示图书具体信息</title>
+</head>
+<body>
+   <h1> {{ book.btitle }} </h1> 
+   <h3>英雄信息如下:</h3>
+   <ul>
+       <!-- 注意此处的for循环语句没有":" -->
+        {% for hero in heros %}
+        <li>{{hero.hname}}---{{ hero.hcomment }}</li>
+        <!-- 如果没有信息，该使用empty -->
+        {% empty %}
+        <li>没有英雄信息</li>
+        {% endfor %}   
+   </ul>
+</body>
+</html>

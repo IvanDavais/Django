@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图书信息</title>
+</head>
+<body>
+    <!-- 下面的a标签还可以写成<a href="http:127.0.0.1:8000/create"> -->
+    <a href="/create">新增</a>
+<ul>
+    {% for book in books %}
+        <li>{{ book.btitle }}--- <a href="/delete{{book.id}}" >删除</a> </li>
+    {% endfor %}
+</ul>
+</body>
+</html>

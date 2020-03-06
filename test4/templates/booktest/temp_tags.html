@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模版标签</title>
+</head>
+<body>
+    <ul>
+        {% for book in books%}
+        <!-- forloop.counter可以计算for循环遍历了第几次 -->
+            <li>{{forloop.counter}}--{{book.btitle}}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/static/js/jquery-1.12.4.min.js"></script>
+    <script>
+        $(function(){
+            $('#btnLogin').click(function(){
+                // 1.获取用户名和密码
+                username = $('#username').val()
+                password = $('#password').val()
+                // 2.发起post ajax请求,请求视图函数login_ajax_check
+                $.ajax({
+                    'url' : '/login_ajax_check',
+                    'type' : 'post',
+                    'data' : {'username':username, 'password':password },
+                    'dataType' : 'json'
+                }).success(function(data){
+                    // 登陆成功{'res':1}
+                    // 登陆失败{'res':0}
+                    if (data.res == 0){
+                        $('#message').show().html('error in username or password')
+                    }
+                    else{   
+                        // 跳转到首页
+                        location.href = '/index'
+                    }
+                })
+            })
+        })
+    </script>
+    <style>
+        #message{
+            display: none;
+            color: red;
+        }
+    </style>
+    <title>登陆页面</title>
+</head>
+<body>
+<div>
+    Username:<input id="username" type="text"><br>
+    Password: <input type="password" id="password"><br>
+    <input type="button" value="login" id='btnLogin'> <br>
+    <div id="message">please enter informations</div>
+</div>
+</body>
+</html>

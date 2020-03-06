@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load filters %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模版过滤器</title>
+    <style>
+        .yellow{
+            background-color: yellow;
+        }
+        .green{
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        {% for book in books%}
+            {# {% if book.id <= 2 %} #}
+            {# {% if book.id|mod %} #}
+            {% if book.id|mod_val:3 %}
+                {# length 在这是求btitle这个字符串的长度 date:改变日期的显示格式: #} 
+                <li class='yellow'>{{book.id}}--{{ book.btitle|length}}--{{ book.bpub_data|date:'Y年-m月-d日' }} </li>
+            {% else %}
+                <li class='green'>{{book.id}}--{{ book.btitle }}--{{ book.bpub_data|date:'Y年-m月' }}</li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+</body>
+</html>

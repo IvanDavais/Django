@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html转义</title>
+</head>
+<body>
+    <!-- 关闭html转义的方法之一:添加safe过滤器 -->
+    {# {{ content|safe }} #}
+    <!-- 关闭html转义的方法之一: 使用autoescape方法，其中off表示关闭自动转义，on表示开启自动转义 -->
+    {% autoescape off%}
+        {{content}}
+    {% endautoescape %}
+</body>
+</html>
